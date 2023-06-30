@@ -1,0 +1,9 @@
+.ItemContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.imgProducto {
+    width: 100%;
+}

@@ -1,0 +1,31 @@
+header {
+    height: 100%;
+    background-color: #e3e3db;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+    margin: 0 3rem;
+}
+.LogoTienda {
+    font-weight: 900;
+    font-size: 2rem;
+    padding: 0.25rem;
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+}
+li {
+    display: inline-block;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+  }
