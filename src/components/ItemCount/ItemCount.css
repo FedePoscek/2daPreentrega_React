@@ -34,8 +34,9 @@
   }
 
   .agregarCarritoButton {
-    background-color: rgb(49, 49, 49);
+    background-color: #4e96fb;
     margin-bottom: 1em;
+    color: #f9f9f9;
   }
 
   .agregarCarritoButton:hover {

@@ -1,6 +1,7 @@
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import imgLogo from '../../assets/Logo_ElectroStore.svg';
 
 // Link para la general
 // Navlink me permite aplicarle estilos css
@@ -10,7 +11,7 @@ const NavBar = () => {
         <header>
             <nav>
                 <Link to="/">
-                    <div className="LogoTienda">ElectroStore</div>
+                    <img className="imgLogoTienda" src={imgLogo} alt="ElectroStore" />
                 </Link>
                 <ul>
                     <li>

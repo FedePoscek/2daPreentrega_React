@@ -1,23 +1,57 @@
 import "./ItemDetail.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import ItemCount from '../ItemCount/ItemCount';
 
-const ItemDetail = ({id, nombre, precio, img, stock, idCat, nombreCat}) => {
+import { CarritoContext } from "../../context/CarritoContext";
+import { useContext, useState } from "react";
+
+
+
+const ItemDetail = ({id, nombre, precio, img, stock, idCat, nombreCat, descripcion}) => {
+
+  const [agregarCantidad, setAgregarCantidad] = useState(0);
+  const {agregarProducto} = useContext(CarritoContext);
+
+  const manejadorCantidad = (cantidad) => {
+
+    setAgregarCantidad(cantidad);
+
+    const item = {id, nombre, precio, img};
+    agregarProducto(item, cantidad);
+  }
+
+
   return (
   
-    <div className='ItemContainer'>
-      <div className='cardProducto'>
-      <h3>{nombre} </h3>
-        <p>U$S {precio} </p>
-        <img className='imgProducto' src={img} alt={nombre} />
-        <p>ID: {id} </p>
-        <ItemCount stock={stock} inicial={1}/>  
-      
-        {/* Vuelvo a la categoria que estaba navegando*/}
-        <NavLink to={`/categoria/${idCat}`}>
-          <button className='btnProducto'> Ver más {`${nombreCat}`} </button>
-        </NavLink>
+    <div className='ItemContainerDetail'>
+      <div className='cardProductoDetail'>
+      <h2>{nombre} </h2>
 
+        <div className="cardGrid">
+
+          <div>
+            <img className='imgProductoDetail' src={img} alt={nombre} />
+          </div>
+
+          <div>
+            <p>U$S {precio} </p>
+            {/* <p>ID: {id} </p> */}
+            <p className="cardDetailInfo">Detalles: {descripcion} </p>
+            <div className="botonesFinalizarItemDetail">            
+              
+              {
+                agregarCantidad > 0 ? (<Link to="/cart" className="botonFinalizarCompra"> Finalizar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>)
+              }
+
+                {/* Vuelvo a la categoria que estaba navegando*/}
+              <NavLink to={`/categoria/${idCat}`}>
+                <button className='btnProducto'> Ver más {`${nombreCat}`} </button>
+              </NavLink>
+
+            </div>
+          </div>
+
+        </div>
     </div>
   </div>
   

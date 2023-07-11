@@ -1,5 +1,5 @@
 import  { useState, useEffect } from "react";
-import { getProductos, getProductosPorCategoria } from "../../asynmock";
+import { getProductos, getProductosPorCategoria } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 // import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
@@ -23,20 +23,13 @@ const ItemListContainer = (props) => {
     }, [idCategoria])
 
 
-
-  // const [producto, setProducto] = useState(null);
-    
-  // useEffect(() => {
-  // getUnProducto(4)
-  // .then(respuesta => setProducto(respuesta))
-  // .catch(error => console.log(error))
-  // })
-
-
   return (
     <>
       <div>
-        <h2>
+        {/* <h2>
+          {props.greeting} 
+        </h2> */}
+        <h2 style={{margin: "1em 0 0.25em 0"}}>
           {props.greeting} 
         </h2>
         <ItemList productos={productos} />
